@@ -1,9 +1,28 @@
-function App() {
-  const [count, setCount] = useState(0)
+import { ThemeProvider } from "styled-components";
+import Body from "./Components/Body";
+import Header from "./Components/Header";
+import { Container } from "./Components/Styles/Container.styled";
+import { GlobalStyles } from "./Components/Styles/Global";
 
-  return (
-    <h1>Hello World</h1>
-  )
+const theme = {
+    colors: {
+        header: "#ebfbff",
+        body: "#fff",
+        footer: "#003333",
+    },
+};
+
+export default function App() {
+    return (
+        <ThemeProvider theme={theme}>
+            <>
+                <GlobalStyles />
+                <Header />
+                <Container>
+                    <h1>Hello</h1>
+                </Container>
+                <Body />
+            </>
+        </ThemeProvider>
+    );
 }
-
-export default App
